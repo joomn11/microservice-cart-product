@@ -1,5 +1,12 @@
 server:
   port: 8045
 spring:
+  activemq:
+    user: admin
+    password: admin
+    broker-url: tcp://localhost:61616
   application:
     name: product-service
+product:
+  jms:
+    destination: product
