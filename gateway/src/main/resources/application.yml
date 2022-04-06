@@ -1,14 +1,24 @@
 server:
   port: 8080
 spring:
+  application:
+    name: gateway
   cloud:
     gateway:
       routes:
         - id: product-service
-          uri: http://localhost:8045
+          # uri: http://localhost:8045
+          uri: lb://PRODUCT-SERVICE
           predicates:
             - Path=/product/**
         - id: cartservice
-          uri: http://localhost:8050
+          # uri: http://localhost:8050
+          uri: lb://CARTSERVICE
           predicates:
             - Path=/cart/**
+eureka:
+  instance:
+    appname: ${spring.application.name}
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka    
