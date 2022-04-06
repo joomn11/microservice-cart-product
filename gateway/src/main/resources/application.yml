@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: http://localhost:8045
+          predicates:
+            - Path=/product/**
+        - id: cartservice
+          uri: http://localhost:8050
+          predicates:
+            - Path=/cart/**
