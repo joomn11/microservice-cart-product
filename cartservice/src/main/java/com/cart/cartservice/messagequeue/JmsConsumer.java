@@ -8,9 +8,11 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class JmsConsumer {
 
     private final ProductRepository productRepository;
@@ -20,6 +22,8 @@ public class JmsConsumer {
     public void consumeMessage(String data) {
         try {
             Product product = mapper.readValue(data, Product.class);
+
+            log.info("data: {}", data);
             productRepository.save(product);
 
         } catch (Exception e) {
