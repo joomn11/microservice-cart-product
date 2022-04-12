@@ -1,0 +1,16 @@
+@startuml erd
+
+!define Table(name) class name <<(T, #FBBBBB)>>
+!define primary_key(id) <color:Red>id</color>
+!define not_null(field) <color:Black>field</color>
+
+Table(product){
+    primary_key(id): Long
+    --
+    not_null(name)
+    not_null(price)
+}
+
+
+
+@enduml
