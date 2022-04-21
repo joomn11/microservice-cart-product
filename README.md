@@ -16,7 +16,7 @@
 
 ## 전체 구조
 
-![](.\resources\archi.jpg)
+![arccc](resources/archi.jpg)
 
 ---
 
